@@ -80,7 +80,8 @@ function css() {
   return gulp
     .src("./scss/**/*.scss")
     .pipe(plumber())
-    .pipe(sass({
+    .pipe( 
+      sass({
       outputStyle: "expanded",
       includePaths: "./node_modules",
     }))
@@ -88,9 +89,6 @@ function css() {
     .pipe(autoprefixer({
       browsers: ['last 2 versions'],
       cascade: false
-    }))
-    .pipe(header(banner, {
-      pkg: pkg
     }))
     .pipe(gulp.dest("./css"))
     .pipe(rename({
@@ -109,9 +107,6 @@ function js() {
       '!./js/*.min.js'
     ])
     .pipe(uglify())
-    .pipe(header(banner, {
-      pkg: pkg
-    }))
     .pipe(rename({
       suffix: '.min'
     }))
