@@ -4,16 +4,33 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/index.css">
     <title>Document</title>
 </head>
 <body>
-    <div id="loading">cargando ...</div>
-    <div id="blend">
-        BLEND
+    <div class="loading show">cargando ...</div>
+    <div id="blend" class="hide">
+        <section class="header">
+            BLEND
+           <video src="./videos/header.mp4"></video>
+        </section>
     </div>
 </body>
 
 <script>
-    
+console.log('document not ready');
+document.addEventListener('DOMContentLoaded', function () {
+    setTimeout(() => {
+        console.log('document ready');
+        let loadingComp = document.getElementsByClassName('loading')[0];
+        loadingComp.classList.remove('show');
+        loadingComp.classList.add('hide');
+
+        let blendComp = document.getElementById('blend');
+        blendComp.classList.remove('hide');
+        blendComp.classList.add('show');
+
+        }, 3000);
+    }, false);
 </script>
 </html>
